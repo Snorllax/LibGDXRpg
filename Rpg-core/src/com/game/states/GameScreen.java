@@ -1,26 +1,32 @@
 package com.game.states;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.GL20;
 import com.game.handlers.GameStateManager;
+import com.game.player.RpgChar;
 
 public class GameScreen extends MainState {
+	
+	private RpgChar character;
 	
 	public GameScreen(GameStateManager gsm) {
 		
 		super(gsm);
+		
+		character = new RpgChar();
 	}
 	
 	public void handleInput() {
+		
+		character.handleInput();
 	}
 	
 	public void update(float dt) {
+		
+		character.update();
 	}
 	
 	public void render() {
-		Gdx.gl.glClearColor(1, 1, 1, 1);
-		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		
+		character.render();
 	}
 	
 	public void dispose() {
